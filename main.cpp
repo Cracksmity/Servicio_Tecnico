@@ -25,8 +25,10 @@ int main() {
 void pruebas() {
     Equipo e1(1, "Michel Davalos", "Laptop", "HP", "Omen 16", "No enciende");
     e1.setFecha("2025/09/27");
-    Equipo e2(2, "Victor Rafael", "Desktop", "Gigabyte", "Aourus", "Disco Corrupto");
+
+    Equipo e2(2, "Johan Suarez", "Desktop", "Gigabyte", "Aorus", "Disco Corrupto");
     e2.setFecha("2025/09/27");
+
     cout << e1 << "\n";
     cout << e2;
 }
