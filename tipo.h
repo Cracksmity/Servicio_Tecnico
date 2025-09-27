@@ -24,6 +24,7 @@ private:
 
 public:
     // estado por defecto = "Recibido"
+    Equipo() {}
     Equipo(int id,
            const string& cliente,
            const string& tipoEquipo,

@@ -7,4 +7,5 @@ add_executable(Servicio_Tecnico main.cpp
         pila_estatica.h
         cola_estatica.h
         lista_estatica.h
-        tipo.h)
+        tipo.h
+        servicio_tecnico.h)
