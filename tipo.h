@@ -5,6 +5,7 @@
 #ifndef SERVICIO_TECNICO_TIPO_H
 #define SERVICIO_TECNICO_TIPO_H
 
+#include <iomanip>
 #include <iostream>
 using namespace std;
 
@@ -37,5 +38,22 @@ public:
     string getModelo() { return modelo; }
     string getEstado() { return estado; }
     string getFecha() { return fecha; }
+
+    void setEstado(string valor) { estado = valor; }
+
+    friend ostream& operator<<(ostream& out, Equipo equipo) {
+        out << left()
+        << setw(4) << equipo.id
+        << setw(8) << equipo.cliente
+        << setw(8) << equipo.tipoEquipo
+        << setw(8) << equipo.marca
+        << setw(8) << equipo.modelo
+        << setw(8) << equipo.problema
+        << setw(8) << equipo.estado
+        << setw(10) << equipo.fecha
+        << right();
+
+        return out;
+    }
 };
 #endif //SERVICIO_TECNICO_TIPO_H
