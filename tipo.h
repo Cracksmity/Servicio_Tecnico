@@ -2,58 +2,76 @@
 // Created by guero on 27/09/2025.
 //
 
-#ifndef SERVICIO_TECNICO_TIPO_H
-#define SERVICIO_TECNICO_TIPO_H
+#ifndef SERVICIO_TECNICO_EQUIPO_H
+#define SERVICIO_TECNICO_EQUIPO_H
+#pragma once
 
+#include <string>
+#include <ostream>
 #include <iomanip>
-#include <iostream>
 using namespace std;
 
 class Equipo {
 private:
-    int id;
-    string cliente;
-    string tipoEquipo;
-    string marca;
-    string modelo;
-    string problema;
-    string estado;
-    string fecha;
+    int         id_{};
+    string      cliente_;
+    string      tipoEquipo_;
+    string      marca_;
+    string      modelo_;
+    string      problema_;
+    string      estado_;   // "Recibido", "En revisión", "Reparado", "Entregado"
+    string      fecha_;
+
 public:
-    Equipo(int id, string cliente, string tipoEquipo, string marca, string modelo, string estado, string fecha) {
-        Equipo::id = id;
-        Equipo::cliente = cliente;
-        Equipo::tipoEquipo = tipoEquipo;
-        Equipo::marca = marca;
-        Equipo::modelo = modelo;
-        Equipo::estado = estado;
-        Equipo::fecha = fecha;
-        Equipo::estado = "Recibido";
-    }
+    // estado por defecto = "Recibido"
+    Equipo(int id,
+           const string& cliente,
+           const string& tipoEquipo,
+           const string& marca,
+           const string& modelo,
+           const string& problema,
+           const string& estado = "Recibido",
+           const string& fecha = {})
+        : id_{id},
+          cliente_{cliente},
+          tipoEquipo_{tipoEquipo},
+          marca_{marca},
+          modelo_{modelo},
+          problema_{problema},
+          estado_{estado},
+          fecha_{fecha}
+    {}
 
-    int getId() { return id; }
-    string getCliente() { return cliente; }
-    string getTipoEquipo() { return tipoEquipo; }
-    string getMarca() { return marca; }
-    string getModelo() { return modelo; }
-    string getEstado() { return estado; }
-    string getFecha() { return fecha; }
+    // Getters (const-correctness y sin copias)
+    int               getId()         const { return id_; }
+    const string&     getCliente()    const { return cliente_; }
+    const string&     getTipoEquipo() const { return tipoEquipo_; }
+    const string&     getMarca()      const { return marca_; }
+    const string&     getModelo()     const { return modelo_; }
+    const string&     getProblema()   const { return problema_; }
+    const string&     getEstado()     const { return estado_; }
+    const string&     getFecha()      const { return fecha_; }
 
-    void setEstado(string valor) { estado = valor; }
+    // Setters mínimos
+    void setEstado(const string& valor)   { estado_ = valor; }
+    void setProblema(const string& valor) { problema_ = valor; }
+    void setFecha(const string& valor)    { fecha_ = valor; }
 
-    friend ostream& operator<<(ostream& out, Equipo equipo) {
-        out << left()
-        << setw(4) << equipo.id
-        << setw(8) << equipo.cliente
-        << setw(8) << equipo.tipoEquipo
-        << setw(8) << equipo.marca
-        << setw(8) << equipo.modelo
-        << setw(8) << equipo.problema
-        << setw(8) << equipo.estado
-        << setw(10) << equipo.fecha
-        << right();
-
+    // Impresión tabular
+    friend ostream& operator<<(ostream& out, const Equipo& e) {
+        ios::fmtflags f = out.flags(); // guarda flags
+        out << left
+            << setw(6)  << e.id_
+            << setw(16) << e.cliente_
+            << setw(14) << e.tipoEquipo_
+            << setw(14) << e.marca_
+            << setw(16) << e.modelo_
+            << setw(22) << e.problema_
+            << setw(14) << e.estado_
+            << setw(12) << e.fecha_;
+        out.flags(f); // restaura flags
         return out;
     }
 };
-#endif //SERVICIO_TECNICO_TIPO_H
+
+#endif // SERVICIO_TECNICO_EQUIPO_H
