@@ -24,7 +24,7 @@ public:
 
     void agrear_inicio(T valor) {
         if (contador == MAX_SIZE) return;
-        // copiar los elementos a su siguiente posición, es decir, mover a la derecha
+        // copiar los elementos a su siguiente posiciï¿½n, es decir, mover a la derecha
         for (size_t i = contador; i > 0; i--) {
             arreglo[i] = arreglo[i-1];
         }
@@ -35,10 +35,10 @@ public:
     void agregar(T valor, size_t pos) {
         if (contador == MAX_SIZE) return;
         if (pos >= contador) {
-            cout << "Posición invalida" << endl;
+            wcout << "Posiciï¿½n invalida" << endl;
             return;
         }
-        // copiar los elementos a su siguiente posición, es decir, mover a la derecha
+        // copiar los elementos a su siguiente posiciï¿½n, es decir, mover a la derecha
         for (size_t i = contador; i > pos; i--) {
             arreglo[i] = arreglo[i-1];
         }
@@ -63,7 +63,7 @@ public:
     void eliminar(size_t pos) {
         if (contador == 0) return;
         if (pos >= contador) {
-            cout << "Posición inválida" << endl;
+            wcout << "Posiciï¿½n invï¿½lida" << endl;
             return;
         }
 
@@ -74,11 +74,11 @@ public:
     }
 
     void mostrar() {
-        cout << "[";
+        wcout << "[";
         for (size_t i = 0; i < contador; i++) {
-            cout << arreglo[i] << ",";
+            wcout << arreglo[i] << ",";
         }
-        cout << "]" << endl;
+        wcout << "]" << endl;
     }
 
     bool vacia() {

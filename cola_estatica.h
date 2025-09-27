@@ -15,7 +15,7 @@ public:
     // enqueue
     void encolar(T valor) {
         if (lista.llena()) {
-            cout << "Cola llena" << endl;
+            wcout << "Cola llena" << endl;
             return;
         }
         lista.agregar_final(valor);
@@ -24,7 +24,7 @@ public:
     // dequeue
     void desencolar() {
         if (lista.vacia()) {
-            cout << "Cola vacía" << endl;
+            wcout << "Cola vacï¿½a" << endl;
             return;
         }
         lista.eliminar_inicio();
@@ -32,7 +32,7 @@ public:
 
     T& inicio() {
         if (lista.vacia()) {
-            throw underflow_error("Cola vacía");
+            throw underflow_error("Cola vacï¿½a");
         }
         return lista[0];
     }

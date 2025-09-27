@@ -14,7 +14,7 @@ public:
     // push
     void apilar(T valor) {
         if (lista.llena()) {
-            cout << "Pila llena" << endl;
+            wcout << "Pila llena" << endl;
             return;
         }
         lista.agregar_final(valor);
@@ -22,7 +22,7 @@ public:
     // pop
     void desapilar() {
         if (lista.vacia()) {
-            cout << "Pila vacia" << endl;
+            wcout << "Pila vacia" << endl;
             return;
         }
         lista.eliminar_final();

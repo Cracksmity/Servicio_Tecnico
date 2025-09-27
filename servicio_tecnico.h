@@ -18,16 +18,16 @@ private:
     ColaEstatica<Equipo, MAX_SIZE>  mantenimiento; // COLA: mantenimiento (FIFO)
 public:
     ServicioTecnico() {
-        cout << "🛠️  ==== Servicio Técnico ====\n";
-        cout << "⚙️  Sistema inicializado con capacidad para " << MAX_SIZE << " equipos\n";
+        wcout << L"🛠️  ==== Servicio Técnico ====\n";
+        wcout << L"⚙️  Sistema inicializado con capacidad para " << MAX_SIZE << " equipos\n";
     }
 
     void ejecutarMenu() {
-        cout << "📋 ==== Menu Principal ====" << '\n';
-        cout << "🛎️  RECEPCION" << '\n';
-        cout << "📦  ALMACEN (Fila)" << '\n';
-        cout << "🔧  Mantenimiento (Cola)" << '\n';
-        cout << "🧩  Otros" << '\n';
+        wcout << L"📋 ==== Menu Principal ====" << '\n';
+        wcout << L"🛎️  RECEPCION" << '\n';
+        wcout << L"📦  ALMACEN (Fila)" << '\n';
+        wcout << L"🔧  Mantenimiento (Cola)" << '\n';
+        wcout << L"🧩  Otros" << '\n';
     }
 
 };

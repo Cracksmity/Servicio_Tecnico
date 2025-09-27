@@ -1,5 +1,7 @@
 #include <iostream>
 #include <windows.h>
+#include <io.h>
+#include <fcntl.h>
 #include "tipo.h"
 #include "servicio_tecnico.h"
 using namespace std;
@@ -7,13 +9,13 @@ using namespace std;
 void pruebas();
 
 int main() {
-    SetConsoleOutputCP(CP_UTF8); // Imprime acentos
-    SetConsoleCP(CP_UTF8); // lee con acentos
+
+    _setmode(_fileno(stdout), _O_U16TEXT);
     // pruebas();
-    cout << "🛠️ Sistema de servicio técnico" << endl;
-    cout << "🗂️ LISTA: Registro de equipo" << endl;
-    cout << "📦 PILA: Almacén (LIFO — Last In First Out)" << endl;
-    cout << "🔧 COLA: Mantenimiento (FIFO — First In First Out)" << endl;
+    wcout << L"🛠️ Sistema de servicio técnico\n";
+    wcout << L"🗂️ LISTA: Registro de equipo\n";
+    wcout << L"📦 PILA: Almacén (LIFO — Last In First Out)\n";
+    wcout << L"🔧 COLA: Mantenimiento (FIFO — First In First Out)\n";
 
     ServicioTecnico<10> st;
     st.ejecutarMenu();
